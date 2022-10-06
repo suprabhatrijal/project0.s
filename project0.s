@@ -15,6 +15,13 @@ lb $t1, 3($t0) # t1 has 0
 sb $t2, 3($t0) # word is 003@60000
 sb $t1, 6($t0) # word is 003@60000
 
+#Second Round of Swaps
+lb $t2, 7($t0) # t2 has 0
+lb $t1, 1($t0) # t1 has 0
+sb $t2, 1($t0) # word is 003@60000
+lb $t2, 4($t0) # t2 has 6
+sb $t1, 4($t0) # word is 003@00000
+sb $t2, 7($t0) # word is 003@00060
 
 li $v0, 4
 la $a0, id
