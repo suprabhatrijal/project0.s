@@ -23,6 +23,16 @@ lb $t2, 4($t0) # t2 has 6
 sb $t1, 4($t0) # word is 003@00000
 sb $t2, 7($t0) # word is 003@00060
 
+
+# third round of swaps
+lb $t1, 8($t0) # t1 has 0
+lb $t2, 2($t0) # t2 has 3
+sb $t1, 2($t0) # word is 000@00060
+lb $t1, 5($t0) # t2 has 0
+sb $t2, 5($t0) # word is 000@03060 
+sb $t1, 8($t0) # word is 000@03060
+
+
 li $v0, 4
 la $a0, id
 syscall
