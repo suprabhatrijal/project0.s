@@ -41,6 +41,7 @@ li $s2, 8 # end of the counter
 
 # Loop that offsets each character by 1 an prints in 8 times
 Loop:
+# offset each character by 1 in the memory
 lb $t1, 0($t0)  
 lb $t2, 8($t0)  
 sb $t1, 8($t0) 
@@ -60,11 +61,18 @@ lb $t1, 1($t0)
 sb $t2, 1($t0) 
 lb $t2, 0($t0) 
 sb $t1, 0($t0) 
+
+# syscall to print string
 li $v0, 4
 syscall
+
+#add to the counter
 addi $s1, $s1, 1
+
+# loop condition
 bne $s1, $s2,  Loop
 
+# exit
 li $v0, 10
 syscall
 
