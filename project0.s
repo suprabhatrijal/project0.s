@@ -39,7 +39,8 @@ syscall
 li $s1, 0 # start of the counter
 li $s2, 8 # end of the counter
 
-# offset each character by 1
+# Loop that offsets each character by 1 an prints in 8 times
+Loop:
 lb $t1, 0($t0)  
 lb $t2, 8($t0)  
 sb $t1, 8($t0) 
@@ -61,6 +62,8 @@ lb $t2, 0($t0)
 sb $t1, 0($t0) 
 li $v0, 4
 syscall
+addi $s1, $s1, 1
+bne $s1, $s2,  Loop
 
 li $v0, 10
 syscall
